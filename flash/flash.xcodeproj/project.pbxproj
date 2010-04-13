@@ -1,0 +1,141 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildStyle section */
+		5BC4AB290FA4E570006F344C /* Development */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Development;
+		};
+		5BC4AB2A0FA4E570006F344C /* Deployment */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			name = Deployment;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXFileReference section */
+		5B22E0971174E364000C2434 /* com */ = {isa = PBXFileReference; lastKnownFileType = folder; path = com; sourceTree = "<group>"; };
+		5B22E1311174E364000C2434 /* ent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ent; sourceTree = "<group>"; };
+		5BC4AAF10FA4E2DA006F344C /* flash.as */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.actionscript; path = flash.as; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		5BC4AAD70FA4E147006F344C = {
+			isa = PBXGroup;
+			children = (
+				5B22E0971174E364000C2434 /* com */,
+				5B22E1311174E364000C2434 /* ent */,
+				5BC4AAF10FA4E2DA006F344C /* flash.as */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		5BC4AAE20FA4E199006F344C /* mxmlc */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "-output ./bin/$(PROJECT_NAME).swf -file-specs $(PROJECT_NAME).as -benchmark=true";
+			buildConfigurationList = 5BC4AAE30FA4E1B7006F344C /* Build configuration list for PBXLegacyTarget "mxmlc" */;
+			buildPhases = (
+			);
+			buildSettings = {
+				PRODUCT_NAME = mxmlc;
+			};
+			buildToolPath = /as3/flex_sdk_2/bin/mxmlc;
+			dependencies = (
+			);
+			name = mxmlc;
+			passBuildSettingsInEnvironment = 0;
+			productName = mxmlc;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		5BC4AAD90FA4E147006F344C /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 5BC4AADA0FA4E147006F344C /* Build configuration list for PBXProject "flash" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				5BC4AB290FA4E570006F344C /* Development */,
+				5BC4AB2A0FA4E570006F344C /* Deployment */,
+			);
+			hasScannedForEncodings = 0;
+			mainGroup = 5BC4AAD70FA4E147006F344C;
+			projectDirPath = "";
+			targets = (
+				5BC4AAE20FA4E199006F344C /* mxmlc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		5BC4AADB0FA4E147006F344C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				SDKROOT = /as3/flex_sdk_2;
+			};
+			name = Debug;
+		};
+		5BC4AADC0FA4E147006F344C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				SDKROOT = /as3/flex_sdk_2;
+			};
+			name = Release;
+		};
+		5BC4AAE40FA4E1B7006F344C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = mxmlc;
+			};
+			name = Debug;
+		};
+		5BC4AAE50FA4E1B7006F344C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				PRODUCT_NAME = mxmlc;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BC4AADA0FA4E147006F344C /* Build configuration list for PBXProject "flash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BC4AADB0FA4E147006F344C /* Debug */,
+				5BC4AADC0FA4E147006F344C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BC4AAE30FA4E1B7006F344C /* Build configuration list for PBXLegacyTarget "mxmlc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BC4AAE40FA4E1B7006F344C /* Debug */,
+				5BC4AAE50FA4E1B7006F344C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BC4AAD90FA4E147006F344C /* Project object */;
+}
