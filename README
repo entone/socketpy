@@ -1,0 +1,8 @@
+Dependancies
+	jsonlib - http://pypi.python.org/pypi/jsonlib/
+
+from the command line
+$ cd socketpy
+$ python run.py
+
+open flash/bin/index.html in a browser, you should see some feedback and the graphs should start running. 
