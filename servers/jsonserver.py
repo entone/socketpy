@@ -1,5 +1,5 @@
 from lib.event import *
-import jsonlib
+import json
 
 class jsonserver(object):
 	
@@ -26,46 +26,44 @@ class jsonserver(object):
 	
 	def send_packet(self, packet):		
 		try:
-			json = jsonlib.write(packet)
+			jsondata = json.dumps(packet)
 			for cli in self.clients_ok:
-				self.server.send_data('tcp', json, cli)
-		except Exception, msg:
-			print msg
+				self.server.send_data('tcp', jsondata, cli)
+		except Exception as msg:
+			print(msg)
 	
 	
 	def check_for_debug(self, cli, data):
 		if data.find(self.policy_flag) != -1:
-			print self.flash_policy_file()
+			print(self.flash_policy_file())
 			self.server.send_data('tcp', self.flash_policy_file(), cli)
-			print "Sent policy file!"
+			print("Sent policy file!")
 			#fire event
 			self.sent_policy_file(cli)
 			return True
 		return False
 		
 	def remove_client(self, client):
-		print "removing client: ", client
+		print("removing client: ", client)
 		try:
 			self.clients.remove(client)
 			self.clients_ok.remove(client)
 		except:
-			print "no client"
+			print("no client")
 	
 	def log_client(self, client):
 		self.clients.append(client)
 		
 	def check_ready(self, obj, cli):
 		if 'method' in obj and obj['method'] == 'ready': 
-			print "APPENDING NEW OK: ", cli
+			print("APPENDING NEW OK: ", cli)
 			self.clients_ok.append(cli)
 
 	def got_data(self, data, cli):
-		print "got data from flash:", data
+		print("got data from flash:", data)
 		data = str(data)		
 		db = self.check_for_debug(cli, data)
 		if db != True:
-			obj = jsonlib.read(data)
+			obj = json.dumps(data)
 			self.check_ready(obj, cli)
 			self.got_packet(obj)
-		
-	

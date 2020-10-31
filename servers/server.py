@@ -36,8 +36,8 @@ class server(object):
 	def setup_socket(self, type):
 		try:
 			return self.types.get(type)()
-		except socket.error, err:
-			print "Couldn't be a server on port %d : %s" % (self.tcp_port, err)
+		except socket.error as err:
+			print("Couldn't be a server on port %d : %s" % (self.tcp_port, err))
 	
 	def enable_tcp(self):
 		soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -80,8 +80,8 @@ class server(object):
 	def send_data(self, type, data, cli_add):
 		try:
 			self.type_send.get(type)(data, cli_add)
-		except socket.error, msg:
-			print msg
+		except socket.error as msg:
+			print(msg)
 			pass
 	
 	def send_udp(self, data, add):
@@ -96,8 +96,8 @@ class server(object):
 		while self.running:
 			try:
 				inputs, output, exc = select.select(self.inputs, self.outputs, [])
-			except socket.error, msg:
-				print msg
+			except socket.error as msg:
+				print(msg)
 				break
 			data = False
 			if(self.udp in inputs): data = self.accept_udp()
@@ -111,14 +111,14 @@ class server(object):
 						data = sock.recv(512)
 					except:
 						#self.socket_closed(sock)
-						print "socket is gone"
+						print("socket is gone")
 				if data:
 					if(sock == self.udp): 
 						self.received_udp(data)
 					elif(tcp):
 						self.received_tcp(data, sock)
 				elif data == False or data =='':
-					print "no data"
+					print("no data")
 					self.socket_closed(sock)
 					self.inputs.remove(sock)
 					sock.close()
@@ -129,7 +129,7 @@ class server(object):
 	
 	def close(self):
 		#self.sock.close()
-		print "Server closed"
+		print("Server closed")
 						
 	
 	

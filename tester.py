@@ -6,7 +6,7 @@ import time
 class tester(object):
 
 	def __init__(self):
-		print "started at "+str(datetime.today())
+		print("started at "+str(datetime.today()))
 		
 		
 		self.server = server('127.0.0.1', 6000, 8000)
@@ -18,10 +18,10 @@ class tester(object):
 		self.server.start()
 			
 	def got_flash(self, client):
-		print "Flash connected"
+		print("Flash connected")
 		
 	def flash_data(self, data):
 		try:
 			self.json.send_packet(data)
 		except:
-			print "probably not parsable by JSON"
+			print("probably not parsable by JSON")
